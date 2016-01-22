@@ -44,6 +44,10 @@ angular.module('osm.services').factory('overpassAPI',
                 });
                 return deferred.promise;
             },
+            parseXML: function(data){
+                //bug: this return nothing with firefox ...
+                return parseXml(data);
+            },
             overpassToGeoJSON: function(query, filter){
                 var deferred = $q.defer();
                 var features = [];
